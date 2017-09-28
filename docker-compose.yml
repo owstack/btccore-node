@@ -20,17 +20,15 @@ services:
       - bitcoin-core-data-dir:/data
     depends_on:
       - "bitcoin-core-conf"
-  ows-bitcoin-cash-node:
+  btc-node:
     build: .
     ports:
       - "3001:3001"
     depends_on:
       - "bitcoin-core"
     volumes:
-    #   - bitcoin-core-data-dir:/data
       - btccore-conf-dir:/home/ows/config
     command: "btccore-node start -c /home/ows/config"
-    # command: "cat /home/ows/config/btccore-node.json"
 volumes:
   bitcoin-core-data-dir:
   btccore-conf-dir:
