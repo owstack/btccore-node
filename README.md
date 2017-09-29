@@ -1,17 +1,17 @@
-Btccore Node
+Btc Node
 ============
 
-[![NPM Package](https://img.shields.io/npm/v/btccore-node.svg?style=flat-square)](https://www.npmjs.org/package/btccore-node)
-[![Build Status](https://img.shields.io/travis/owstack/btccore-node.svg?branch=master&style=flat-square)](https://travis-ci.org/owstack/btccore-node)
-[![Coverage Status](https://img.shields.io/coveralls/owstack/btccore-node.svg?style=flat-square)](https://coveralls.io/r/owstack/btccore-node)
+[![NPM Package](https://img.shields.io/npm/v/btc-node.svg?style=flat-square)](https://www.npmjs.org/package/btc-node)
+[![Build Status](https://img.shields.io/travis/owstack/btc-node.svg?branch=master&style=flat-square)](https://travis-ci.org/owstack/btc-node)
+[![Coverage Status](https://img.shields.io/coveralls/owstack/btc-node.svg?style=flat-square)](https://coveralls.io/r/owstack/btc-node)
 
 A Bitcoin Cash full node for building applications and services with Node.js. A node is extensible and can be configured to run additional services.  Additional services can be enabled to make a node more useful such as exposing new APIs, running a block explorer and wallet service.
 
 ## Install
 
 ```bash
-npm install -g btccore-node
-btccore-node start
+npm install -g btc-node
+btc-node start
 ```
 
 ## Prerequisites
@@ -24,24 +24,24 @@ btccore-node start
 
 ## Configuration
 
-Btccore includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Btccore Node.
+Btc includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Btc Node.
 
 ```bash
-btccore-node create -d <bitcoin-data-dir> mynode
+btc-node create -d <bitcoin-data-dir> mynode
 cd mynode
-btccore-node install <service>
-btccore-node install https://github.com/yourname/helloworld
+btc-node install <service>
+btc-node install https://github.com/yourname/helloworld
 ```
 
 This will create a directory with configuration files for your node and install the necessary dependencies. For more information about (and developing) services, please see the [Service Documentation](docs/services.md).
 
 ## Add-on Services
 
-There are several add-on services available to extend the functionality of Btccore:
+There are several add-on services available to extend the functionality of Btc:
 
-- [Explorer API](https://github.com/owstack/btccore-explorer-api)
+- [Explorer API](https://github.com/owstack/btc-explorer-api)
 - [OWS Explorer](https://github.com/owstack/ows-explorer)
-- [Btccore Wallet Service](https://github.com/owstack/btccore-wallet-service)
+- [Btc Wallet Service](https://github.com/owstack/btc-wallet-service)
 
 ## Documentation
 
@@ -56,11 +56,11 @@ There are several add-on services available to extend the functionality of Btcco
 
 ## Contributing
 
-Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/owstack/btccore/blob/master/CONTRIBUTING.md) file.
+Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/owstack/btc/blob/master/CONTRIBUTING.md) file.
 
 ## License
 
-Code released under [the MIT license](https://github.com/owstack/btccore-node/blob/master/LICENSE).
+Code released under [the MIT license](https://github.com/owstack/btc-node/blob/master/LICENSE).
 
 Copyright 2017 Open Wallet Stack
 

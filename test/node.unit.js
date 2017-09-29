@@ -2,15 +2,15 @@
 
 var should = require('chai').should();
 var sinon = require('sinon');
-var btccore = require('btccore-lib');
-var Networks = btccore.Networks;
+var btc = require('btc-lib');
+var Networks = btc.Networks;
 var proxyquire = require('proxyquire');
 var util = require('util');
 var BaseService = require('../lib/service');
 var index = require('../lib');
 var log = index.log;
 
-describe('Btccore Node', function() {
+describe('Btc Node', function() {
 
   var baseConfig = {};
 
@@ -429,7 +429,7 @@ describe('Btccore Node', function() {
 
   describe('#getNetworkName', function() {
     afterEach(function() {
-      btccore.Networks.disableRegtest();
+      btc.Networks.disableRegtest();
     });
     it('it will return the network name for livenet', function() {
       var node = new Node(baseConfig);

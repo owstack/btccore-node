@@ -1,4 +1,0 @@
-#!/usr/bin/env node
-
-var btccore = require('../lib/cli/btccore');
-btccore();

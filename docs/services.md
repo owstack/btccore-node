@@ -1,11 +1,11 @@
 # Services
-Btccore Node has a service module system that can start up additional services that can include additional:
+Btc Node has a service module system that can start up additional services that can include additional:
 - Blockchain indexes (e.g. querying balances for addresses)
 - API methods
 - HTTP routes
 - Event types to publish and subscribe
 
-The `btccore-node.json` file describes which services will load for a node:
+The `btc-node.json` file describes which services will load for a node:
 
 ```json
 {
@@ -20,27 +20,27 @@ Services correspond with a Node.js module as described in 'package.json', for ex
 ```json
 {
   "dependencies": {
-    "btccore-lib": "^0.13.7",
-    "btccore-node": "^0.2.0",
-    "btccore-explorer-api": "^3.0.0"
+    "btc-lib": "^0.13.7",
+    "btc-node": "^0.2.0",
+    "btc-explorer-api": "^3.0.0"
   }
 }
 ```
 
-_Note:_ If you already have a btccore-node database, and you want to query data from previous blocks in the blockchain, you will need to reindex. Reindexing right now means deleting your btccore-node database and resyncing.
+_Note:_ If you already have a btc-node database, and you want to query data from previous blocks in the blockchain, you will need to reindex. Reindexing right now means deleting your btc-node database and resyncing.
 
 ## Using Services Programmatically
 If, instead, you would like to run a custom node, you can include services by including them in your configuration object when initializing a new node.
 
 ```js
-//Require btccore
-var btccore = require('btccore-node');
+//Require btc
+var btc = require('btc-node');
 
 //Services
-var Bitcoin = btccore.services.Bitcoin;
-var Web = btccore.services.Web;
+var Bitcoin = btc.services.Bitcoin;
+var Web = btc.services.Web;
 
-var myNode = new btccore.Node({
+var myNode = new btc.Node({
   network: 'regtest'
   services: [
     {
@@ -49,7 +49,7 @@ var myNode = new btccore.Node({
       config: {
         spawn: {
           datadir: '/home/<username>/.bitcoin',
-          exec: '/home/<username>/btccore-node/bin/bitcoind'
+          exec: '/home/<username>/btc-node/bin/bitcoind'
         }
       }
     },
@@ -82,7 +82,7 @@ A new service can be created by inheriting from `Node.Service` and implementing 
 - `Service.prototype.getPublishEvents()` - Describes which events can be subscribed to for this service, useful to subscribe to events over the included web socket API.
 - `Service.prototype.setupRoutes()` - A service can extend HTTP routes on an express application by implementing this method.
 
-The `package.json` for the service module can either export the `Node.Service` directly, or specify a specific module to load by including `"btccoreNode": "lib/btccore-node.js"`.
+The `package.json` for the service module can either export the `Node.Service` directly, or specify a specific module to load by including `"btcNode": "lib/btc-node.js"`.
 
 Please take a look at some of the existing services for implementation specifics.
 

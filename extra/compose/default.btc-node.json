@@ -21,7 +21,7 @@
       }
     },
     "explorer-api": {
-      "module": "btccore-explorer-api",
+      "module": "btc-explorer-api",
       "apiPrefix": "explorer-api"
     }
   }

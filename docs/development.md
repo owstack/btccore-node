@@ -10,12 +10,12 @@ nvm install v4
 
 ## Fork and Download Repositories
 
-To develop btccore-node:
+To develop btc-node:
 
 ```bash
 cd ~
-git clone git@github.com:<yourusername>/btccore-node.git
-git clone git@github.com:<yourusername>/btccore-lib.git
+git clone git@github.com:<yourusername>/btc-node.git
+git clone git@github.com:<yourusername>/btc-lib.git
 ```
 
 To develop bitcoin or to compile from source:
@@ -46,19 +46,19 @@ brew install zeromq
 ## Install and Symlink
 
 ```bash
-cd btccore-lib
+cd btc-lib
 npm install
-cd ../btccore-node
+cd ../btc-node
 npm install
 ```
 **Note**: If you get a message about not being able to download bitcoin distribution, you'll need to compile bitcoind from source, and setup your configuration to use that version.
 
 
-We now will setup symlinks in `btccore-node` *(repeat this for any other modules you're planning on developing)*:
+We now will setup symlinks in `btc-node` *(repeat this for any other modules you're planning on developing)*:
 ```bash
 cd node_modules
-rm -rf btccore-lib
-ln -s ~/btccore-lib
+rm -rf btc-lib
+ln -s ~/btc-lib
 rm -rf bitcoind-rpc
 ln -s ~/bitcoind-rpc
 ```
@@ -78,7 +78,7 @@ npm install mocha -g
 
 To run all test suites:
 ```bash
-cd btccore-node
+cd btc-node
 npm run regtest
 npm run test
 ```
@@ -102,11 +102,11 @@ cd ~
 mkdir devnode
 cd devnode
 mkdir node_modules
-touch btccore-node.json
+touch btc-node.json
 touch package.json
 ```
 
-Edit `btccore-node.json` with something similar to:
+Edit `btc-node.json` with something similar to:
 ```json
 {
   "network": "livenet",
@@ -126,21 +126,21 @@ Edit `btccore-node.json` with something similar to:
       }
     },
     "explorer-api": {
-      "module": "btccore-explorer-api"
+      "module": "btc-explorer-api"
     }
   }
 }
 ```
 
-**Note**: To install services [btccore-explorer-api](https://github.com/owstack/btccore-explorer-api) and [ows-explorer](https://github.com/owstack/ows-explorer) you'll need to clone the repositories locally.
+**Note**: To install services [btc-explorer-api](https://github.com/owstack/btc-explorer-api) and [ows-explorer](https://github.com/owstack/ows-explorer) you'll need to clone the repositories locally.
 
 Setup symlinks for all of the services and dependencies:
 
 ```bash
 cd node_modules
-ln -s ~/btccore-lib
-ln -s ~/btccore-node
-ln -s ~/btccore-explorer-api
+ln -s ~/btc-lib
+ln -s ~/btc-node
+ln -s ~/btc-explorer-api
 ln -s ~/ows-explorer
 ```
 
@@ -161,5 +161,5 @@ rpcpassword=local321
 
 From within the `devnode` directory with the configuration file, start the node:
 ```bash
-../btccore-node/bin/btccore-node start
+../btc-node/bin/btc-node start
 ```

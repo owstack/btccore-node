@@ -11,7 +11,7 @@ RUN useradd --user-group --create-home --shell /bin/false ows
 ENV NODE_ENV=production
 ENV HOME_PATH=/home/ows
 
-ENV PKG_NAME=btccore-node
+ENV PKG_NAME=btc-node
 ENV PKG_DIR=$HOME_PATH/$PKG_NAME
 
 ENV APP_NAME=bitcoin-core-services
@@ -30,12 +30,12 @@ RUN chgrp ows /usr/local/lib/node_modules
 RUN chgrp ows /usr/local/bin
 
 USER ows
-RUN npm install -g owstack/btccore-node
+RUN npm install -g owstack/btc-node
 
 WORKDIR $HOME_PATH
 RUN $PKG_NAME create -d $BITCOIN_DATA $APP_NAME
 WORKDIR $APP_DIR
-RUN $PKG_NAME install https://github.com/owstack/btccore-explorer-api.git
-RUN $PKG_NAME install https://github.com/owstack/btccore-wallet-service.git
+RUN $PKG_NAME install https://github.com/owstack/btc-explorer-api.git
+RUN $PKG_NAME install https://github.com/owstack/btc-wallet-service.git
 USER root
-CMD ["btccore-node","start"]
+CMD ["btc-node","start"]
