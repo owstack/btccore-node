@@ -24,7 +24,7 @@ btc-node start
 
 ## Configuration
 
-Btc includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Btc Node.
+Btc-node includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Btc Node.
 
 ```bash
 btc-node create -d <bitcoin-data-dir> mynode
@@ -37,7 +37,7 @@ This will create a directory with configuration files for your node and install 
 
 ## Add-on Services
 
-There are several add-on services available to extend the functionality of Btc:
+There are several add-on services available to extend the functionality of Btc-node:
 
 - [Explorer API](https://github.com/owstack/btc-explorer-api)
 - [OWS Explorer](https://github.com/owstack/ows-explorer)
