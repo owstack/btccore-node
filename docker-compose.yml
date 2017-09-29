@@ -27,10 +27,8 @@ services:
     depends_on:
       - "bitcoin-core"
     volumes:
-    #   - bitcoin-core-data-dir:/data
       - btc-conf-dir:/home/ows/config
-    command: "btc-node start -c /home/ows/config"
-    # command: "cat /home/ows/config/btc-node.json"
+    command: "btcnode start -c /home/ows/config"
 volumes:
   bitcoin-core-data-dir:
   btc-conf-dir:
