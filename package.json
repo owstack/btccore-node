@@ -9,7 +9,7 @@
     "url": "https://github.com/owstack/btc-node/issues"
   },
   "bin": {
-    "btc-node": "./bin/btc-node"
+    "btcnode": "./bin/btcnode"
   },
   "scripts": {
     "test": "mocha -R spec --recursive",
