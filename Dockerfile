@@ -1,4 +1,4 @@
-FROM node:8.1
+FROM node:8.9
 
 # update apt-get
 RUN apt-get update && apt-get install -y dnsutils
@@ -25,15 +25,15 @@ WORKDIR $PKG_DIR
 RUN chown -R ows:ows $HOME_PATH && chgrp ows /usr/local/lib/node_modules && chgrp ows /usr/local/bin
 
 USER ows
-RUN npm install -g owstack/btc-node
+RUN npm install -g @owstack/btc-node
 
 WORKDIR $HOME_PATH
 RUN $PKG_NAME create -d $BITCOIN_DATA $APP_NAME
 
 WORKDIR $APP_DIR
-RUN $PKG_NAME install https://github.com/owstack/btc-explorer-api.git
+RUN $PKG_NAME install @owstack/btc-explorer-api
 RUN rm package-lock.json
-RUN $PKG_NAME install https://github.com/owstack/btc-wallet-service.git
+RUN $PKG_NAME install @owstack/btc-wallet-service
 
 USER root
 CMD ["btcnode","start"]
