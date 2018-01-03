@@ -6,7 +6,7 @@ Btc Node
 [![Coverage Status](https://img.shields.io/coveralls/owstack/btc-node.svg?style=flat-square)](https://coveralls.io/r/owstack/btc-node)
 [![Greenkeeper badge](https://badges.greenkeeper.io/owstack/btc-node.svg)](https://greenkeeper.io/)
 
-A Bitcoin Cash full node for building applications and services with Node.js. A node is extensible and can be configured to run additional services.  Additional services can be enabled to make a node more useful such as exposing new APIs, running a block explorer and wallet service.
+A Bitcoin full node for building applications and services with Node.js. A node is extensible and can be configured to run additional services.  Additional services can be enabled to make a node more useful such as exposing new APIs, running a block explorer and wallet service.
 
 ## Install
 
