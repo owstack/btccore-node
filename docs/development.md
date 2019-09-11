@@ -120,10 +120,16 @@ Edit `btc-node.json` with something similar to:
   ],
   "servicesConfig": {
     "bitcoind": {
-      "spawn": {
-        "datadir": "/home/<youruser>/.bitcoin",
-        "exec": "/home/<youruser>/bitcoin/src/bitcoind"
-      }
+        "connect": [{
+         "zmqpubrawtx": "tcp://bitcoin-core:28332",
+         "zmqpubhashblock": "tcp://bitcoin-core:28332",
+         "rpcprotocol": "http",
+         "rpchost": "bitcoin-core",
+         "rpcport": 8332,
+         "rpcuser": "bitcoin",
+         "rpcpassword": "local321"
+       }]
+
     },
     "explorer-api": {
       "module": "btc-explorer-api"

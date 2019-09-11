@@ -4,20 +4,7 @@ The Bitcoin Service is a Node.js interface to [Bitcoin Core](https://github.com/
 
 ## Configuration
 
-The default configuration will include a "spawn" configuration in "bitcoind". This defines the location of the block chain database and the location of the `bitcoind` daemon executable. The below configuration points to a local clone of `bitcoin`, and will start `bitcoind` automatically with your Node.js application.
-
-```json
-  "servicesConfig": {
-    "bitcoind": {
-      "spawn": {
-        "datadir": "/home/btc/.bitcoin",
-        "exec": "/home/btc/bitcoin/src/bitcoind"
-      }
-    }
-  }
-```
-
-It's also possible to connect to separately managed `bitcoind` processes with round-robin quering, for example:
+It is possible to connect to separately managed `bitcoind` processes with round-robin quering, for example:
 
 ```json
   "servicesConfig": {

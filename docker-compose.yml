@@ -1,10 +1,5 @@
 version: '3.2'
 services:
-  bitcoin-core-conf:
-    build: extra/compose
-    volumes:
-      - bitcoin-core-data-dir:/data
-      - btc-conf-dir:/home/ows/config
   bitcoin-core:
     image: "owstack/bitcoin-core:0.14.1-ows"
     user: root
@@ -17,9 +12,7 @@ services:
       - "28332:28332"
       - "28333:28333"
     volumes:
-      - bitcoin-core-data-dir:/data
-    depends_on:
-      - "bitcoin-core-conf"
+      - /data/bitcoin-core:/data
   btc-node:
     build: .
     ports:
@@ -27,8 +20,5 @@ services:
     depends_on:
       - "bitcoin-core"
     volumes:
-      - btc-conf-dir:/home/ows/config
-    command: "btcnode start -c /home/ows/config"
-volumes:
-  bitcoin-core-data-dir:
-  btc-conf-dir:
+      - /data/btc-node:/home/ows/config
+    command: "btcnode start -c /home/ows/config -m /home/ows/bitcoin-core-services"

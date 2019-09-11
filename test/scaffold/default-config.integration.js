@@ -18,10 +18,15 @@ describe('#defaultConfig', function() {
       ],
       servicesConfig: {
         bitcoind: {
-          spawn: {
-            datadir: process.env.HOME + '/.btc/data',
-            exec: expectedExecPath
-          }
+            "connect": [{
+              "zmqpubrawtx": "tcp://bitcoin-core:28332",
+              "zmqpubhashblock": "tcp://bitcoin-core:28332",
+              "rpcprotocol": "http",
+              "rpchost": "bitcoin-core",
+              "rpcport": 8332,
+              "rpcuser": "bitcoin",
+              "rpcpassword": "local321"
+            }]
         }
       }
     }, null, 2);
@@ -48,8 +53,7 @@ describe('#defaultConfig', function() {
     info.config.services.should.deep.equal(['bitcoind', 'web']);
     var bitcoind = info.config.servicesConfig.bitcoind;
     should.exist(bitcoind);
-    bitcoind.spawn.datadir.should.equal(home + '/.btc/data');
-    bitcoind.spawn.exec.should.equal(expectedExecPath);
+    bitcoind.connect.length.should.equal(1);
   });
   it('will include additional services', function() {
     var config = JSON.stringify({
@@ -63,10 +67,15 @@ describe('#defaultConfig', function() {
       ],
       servicesConfig: {
         bitcoind: {
-          spawn: {
-            datadir: process.env.HOME + '/.btc/data',
-            exec: expectedExecPath
-          }
+            "connect": [{
+              "zmqpubrawtx": "tcp://bitcoin-core:28332",
+              "zmqpubhashblock": "tcp://bitcoin-core:28332",
+              "rpcprotocol": "http",
+              "rpchost": "bitcoin-core",
+              "rpcport": 8332,
+              "rpcuser": "bitcoin",
+              "rpcpassword": "local321"
+            }]
         }
       }
     }, null, 2);
@@ -100,7 +109,6 @@ describe('#defaultConfig', function() {
     ]);
     var bitcoind = info.config.servicesConfig.bitcoind;
     should.exist(bitcoind);
-    bitcoind.spawn.datadir.should.equal(home + '/.btc/data');
-    bitcoind.spawn.exec.should.equal(expectedExecPath);
+    bitcoind.connect.length.should.equal(1);
   });
 });

@@ -36,4 +36,4 @@ RUN $PKG_NAME install @owstack/btc-wallet-service@0.0.9
 RUN $PKG_NAME install @owstack/ows-explorer@0.0.3
 
 USER root
-CMD ["btcnode","start"]
+CMD ["btcnode", "start", "-c", "/home/ows/config", "-m", "/home/ows/bitcoin-core-services"]

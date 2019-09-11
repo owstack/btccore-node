@@ -47,10 +47,15 @@ var myNode = new btc.Node({
       name: 'bitcoind',
       module: Bitcoin,
       config: {
-        spawn: {
-          datadir: '/home/<username>/.bitcoin',
-          exec: '/home/<username>/btc-node/bin/bitcoind'
-        }
+        "connect": [{
+         "zmqpubrawtx": "tcp://bitcoin-core:28332",
+         "zmqpubhashblock": "tcp://bitcoin-core:28332",
+         "rpcprotocol": "http",
+         "rpchost": "bitcoin-core",
+         "rpcport": 8332,
+         "rpcuser": "bitcoin",
+         "rpcpassword": "local321"
+       }]
       }
     },
     {
@@ -85,4 +90,3 @@ A new service can be created by inheriting from `Node.Service` and implementing 
 The `package.json` for the service module can either export the `Node.Service` directly, or specify a specific module to load by including `"btcNode": "lib/btc-node.js"`.
 
 Please take a look at some of the existing services for implementation specifics.
-
